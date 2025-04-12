@@ -12,5 +12,6 @@ class Settings(BaseSettings):
     smtp_password: str
     model_config = SettingsConfigDict(env_file=".env")
     allowed_origins: str
+    base_url: str
 
 settings = Settings()

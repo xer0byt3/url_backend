@@ -26,8 +26,7 @@ def generate_unique_id(long_url, user_id):
 
 
 def send_reset_email(to_email: str, reset_token: str):
-    reset_url = f"http://your-frontend-url/reset-password?token={reset_token}"
-    reset_url = f"http://localhost:3000/reset-password?token={reset_token}"
+    reset_url = f"{settings.base_url}reset-password?token={reset_token}"
     msg = MIMEText(f"Click the link to reset your password:\n\n{reset_url}")
     msg["Subject"] = "Reset Your Password"
     msg["From"] = "crishsarthak@gmail.com"
