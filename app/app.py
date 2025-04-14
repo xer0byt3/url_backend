@@ -10,13 +10,14 @@ from app.users import auth_backend, current_active_user, fastapi_users
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await create_db_and_tables()
     yield
 
 
-app = FastAPI(lifespan=lifespan)
+app = FastAPI(lifespan=lifespan, redirect_slashes=False)
 
 app.add_middleware(
     CORSMiddleware,
